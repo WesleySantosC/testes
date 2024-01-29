@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psicologia - Atendimentos</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav {
+            background-color: #555;
+            overflow: hidden;
+            text-align: center; /* Centralizar o texto no menu */
+        }
+        nav a {
+            display: inline-block; /* Tornar os itens do menu em blocos */
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        section {
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+        h2 {
+            color: #555;
+        }
+        p {
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Psicologia</h1>
+    </header>
+
+    <nav>
+        <a href="#" onclick="mostrarConteudo('atendimentos')">Atendimentos</a>
+        <a href="#" onclick="mostrarConteudo('sobre-nos')">Sobre Nós</a>
+        <a href="#" onclick="mostrarConteudo('consultas')">Consultas</a>
+        <a href="planos.html" onclick="mostrarConteudo('planos')">Planos</a>
+    </nav>
+
+    <section id="conteudo">
+        <h2>Bem-vindo aos Atendimentos</h2>
+        <p>Oferecemos uma variedade de serviços para atender às suas necessidades.</p>
+    </section>
+
+    <script>
+        function mostrarConteudo(conteudo) {
+            var secao = document.getElementById('conteudo');
+
+            switch (conteudo) {
+                case 'atendimentos':
+                    secao.innerHTML = '<h2>Bem-vindo aos Atendimentos</h2><p>Oferecemos uma variedade de serviços para atender às suas necessidades.</p>';
+                    break;
+                case 'sobre-nos':
+                    secao.innerHTML = '<h2>Sobre Nós</h2><p>Somos uma equipe dedicada de profissionais comprometidos com o bem-estar emocional de nossos clientes.</p>';
+                    break;
+                case 'consultas':
+                    secao.innerHTML = '<h2>Consultas</h2><p>Agende uma consulta para discutir suas preocupações e encontrar soluções juntos.</p>';
+                    break;
+                case 'planos':
+                    secao.innerHTML = '<h2>Planos</h2><p>Confira nossos planos de atendimento e escolha o que melhor se adapta às suas necessidades.</p>';
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
+
+</body>
+</html>

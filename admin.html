@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração de Consultas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        section {
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+            text-align: center; /* Centralizar o conteúdo */
+        }
+        h2 {
+            color: #555;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Administração de Consultas</h1>
+    </header>
+
+    <section>
+        <h2>Consultas Agendadas</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Data</th>
+                    <th>Horário</th>
+                </tr>
+            </thead>
+            <tbody id="consultasBody"></tbody>
+        </table>
+    </section>
+
+    <script>
+        // Função para exibir consultas na tabela
+        function exibirConsultas() {
+            var consultasBody = document.getElementById('consultasBody');
+            consultasBody.innerHTML = '';
+
+            // Recuperar consultas do armazenamento local (em uma aplicação real, você usaria um back-end e um banco de dados)
+            var consultas = JSON.parse(localStorage.getItem('consultas')) || [];
+
+            for (var i = 0; i < consultas.length; i++) {
+                var consulta = consultas[i];
+
+                var tr = document.createElement('tr');
+                var tdNome = document.createElement('td');
+                var tdData = document.createElement('td');
+                var tdHorario = document.createElement('td');
+
+                tdNome.innerText = consulta.nome;
+                tdData.innerText = consulta.data;
+                tdHorario.innerText = consulta.horario;
+
+                tr.appendChild(tdNome);
+                tr.appendChild(tdData);
+                tr.appendChild(tdHorario);
+
+                consultasBody.appendChild(tr);
+            }
+        }
+
+        // Chame a função para exibir as consultas ao carregar a página
+        window.onload = exibirConsultas;
+    </script>
+
+</body>
+</html>

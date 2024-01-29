@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcar Consulta</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        section {
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+            text-align: center; /* Centralizar o conteúdo */
+        }
+        h2 {
+            color: #555;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input, select {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 200px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Marcar Consulta</h1>
+    </header>
+
+    <section>
+        <h2>Agende sua Consulta</h2>
+
+        <!-- Formulário para marcar consulta -->
+<form id="consultaForm" method="post" action="conexao.php">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="data">Data:</label>
+    <input type="date" id="data" name="data" required>
+
+    <label for="horario">Horário:</label>
+    <input type="time" id="horario" name="horario" required>
+
+    <button type="submit">Marcar Consulta</button>
+</form>
+
+    </section>
+
+    <script>
+        function marcarConsulta() {
+            var nome = document.getElementById('nome').value;
+            var data = document.getElementById('data').value;
+            var horario = document.getElementById('horario').value;
+
+            // Aqui você pode enviar os dados para um servidor ou armazená-los localmente
+            // Por enquanto, apenas mostraremos os dados no console para fins de demonstração
+            console.log('Nome: ' + nome);
+            console.log('Data: ' + data);
+            console.log('Horário: ' + horario);
+
+            // Limpar o formulário após marcar a consulta (você pode ajustar conforme necessário)
+            document.getElementById('consultaForm').reset();
+        }
+    </script>
+
+</body>
+</html>
+
